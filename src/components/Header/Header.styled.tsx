@@ -5,9 +5,12 @@ import {Theme} from '../../models/theme';
 
 export const HeaderBlock = styled.div`
 	grid-area: header;
+	position: fixed;
 	width: 100%;
 	display: flex;
 	justify-content: center;
+	background-color: #fff;
+	z-index: 99;
 `;
 export const HeaderContainer = styled.div<{ theme: Theme }>`
 	width: 140rem;
@@ -66,4 +69,4 @@ export const HeaderLink = styled(NavLink)<{theme: Theme}>`
     
 	}
 `;
-export const HeaderProfile = styled.div``;
+export const ProfileHeader = styled.div``;

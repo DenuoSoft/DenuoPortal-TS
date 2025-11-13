@@ -122,7 +122,7 @@ export const NavButton = styled.button<{$isPrev: boolean; $isNext: boolean, them
 	top: 50%;
 	transform: translateY(-50%);
 	background-color: ${({theme}) => theme.colors.backgroundSecondary};
-	color: rgba(98, 121, 167, 0.6);
+	color: ${({theme}) => theme.colors.activeColor};
 	border: 1px solid rgba(98, 121, 167, 0.3);
 	cursor: pointer;
 	padding: 8px 12px;
@@ -134,6 +134,7 @@ export const NavButton = styled.button<{$isPrev: boolean; $isNext: boolean, them
 
 	&:hover {
 		background: #fff;
+		 
 	}
 
 	${(props) =>

@@ -1,9 +1,14 @@
 import React, {useEffect, useRef, useState, useCallback} from 'react';
-import { ModalProps } from '../../models/modal';
-import { CloseButton, ModalBody, ModalContent, ModalHeader, ModalOverlay } from './Modal.styled';
+import {ModalProps} from '../../models/modal';
+import {
+	CloseButton,
+	ModalBody,
+	ModalContent,
+	ModalHeader,
+	ModalOverlay,
+} from './Modal.styled';
 
-
-export const Modal = ({isOpen, onClose, children,}: ModalProps) => {
+export const Modal = ({isOpen, onClose, children}: ModalProps) => {
 	const modalRef = useRef<HTMLDivElement>(null);
 	const [isVisible, setIsVisible] = useState(false);
 	const [shouldRender, setShouldRender] = useState(isOpen);
@@ -20,7 +25,7 @@ export const Modal = ({isOpen, onClose, children,}: ModalProps) => {
 		},
 		[onClose]
 	);
-	
+
 	const handleEscapeKey = useCallback(
 		(event: KeyboardEvent) => {
 			if (event.key === 'Escape') {
@@ -74,7 +79,7 @@ export const Modal = ({isOpen, onClose, children,}: ModalProps) => {
 				handleClickOutside as unknown as React.MouseEventHandler<HTMLDivElement>
 			}
 		>
-			<ModalContent 
+			<ModalContent
 				$isVisible={isVisible}
 				ref={modalRef}
 				role="dialog"
@@ -82,7 +87,10 @@ export const Modal = ({isOpen, onClose, children,}: ModalProps) => {
 			>
 				<ModalHeader>
 					<CloseButton
-						onClick={onClose}
+						onClick={(e) => {
+							e.stopPropagation();
+							onClose();
+						}}
 						aria-label="Close modal"
 					>
 						&times;

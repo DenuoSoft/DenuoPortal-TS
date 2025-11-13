@@ -7,7 +7,7 @@ import { AuthComponentProps, AuthContextValue, InitOptions, UserInfo } from '../
 const initOptions: InitOptions = {
   url: 'https://sso.denuo.ru:8443', 
   realm: 'denuo',
-  clientId: 'portal', 
+  clientId: 'portaldev', 
 };
 
 let kc: any;

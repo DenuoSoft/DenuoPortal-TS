@@ -14,19 +14,20 @@ import {
 } from './PeopleList.styled';
 import {useGetUsersQuery} from '../../Api/apiSlice';
 import '../../models/users';
-import {UsersList, UsersResponse} from '../../models/users';
+import {UsersResponse} from '../../models/users';
 import Loader from '../Loader/Loader';
 import {useAutoAuth} from '../../hooks/useAuthInit';
 import {Input} from '../Input/Input';
-import { Modal } from '../Modal/Modal';
-import { Profile } from '../Profile/Profile';
+import {Modal} from '../Modal/Modal';
+import {Profile} from '../Profile/Profile';
+import { employeeProfileConfig } from './peopleConfig';
 
 export const PeopleList = () => {
 	useAutoAuth();
 	const [selectedLetter, setSelectedLetter] = useState('ALL');
 	const [searchTerm, setSearchTerm] = useState('');
 	const [isModalOpen, setIsModalOpen] = useState(false);
-	const [modalData, setModalData] = useState(null);
+	const [modalData, setModalData] = useState<any>(null);
 
 	const {
 		data: response = {results: []},
@@ -38,6 +39,7 @@ export const PeopleList = () => {
 		setModalData(contact);
 		setIsModalOpen(true);
 	};
+
 	const closeModal = () => {
 		setIsModalOpen(false);
 		setModalData(null);
@@ -49,6 +51,25 @@ export const PeopleList = () => {
 	);
 
 	const users = (response as UsersResponse)?.results || [];
+	const peopeleProfileConfig = employeeProfileConfig(modalData);
+	
+	const getProfileData = (userData: any) => {
+		return {
+			first_name: userData.first_name,
+			last_name: userData.last_name,
+			avatar: userData.avatar,
+			position: userData.position,
+			ext_phone: userData.ext_phone,
+			mobile_phone: userData.mobile_phone,
+			location: userData.location,
+			assistant: userData.assistant,
+			assistant_ext: userData.assistant_ext,
+
+			fullName: `${userData.first_name || ''} ${
+				userData.last_name || ''
+			}`.trim(),
+		};
+	};
 
 	const filteredUsers = useMemo(() => {
 		return users.filter((user) => {
@@ -73,11 +94,6 @@ export const PeopleList = () => {
 
 	const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setSearchTerm(e.target.value);
-	};
-
-	const handleResetFilters = () => {
-		setSelectedLetter('ALL');
-		setSearchTerm('');
 	};
 
 	const columns = [
@@ -158,8 +174,15 @@ export const PeopleList = () => {
 						)}
 					</TableBody>
 				</TableContainer>
+
 				<Modal isOpen={isModalOpen} onClose={closeModal} isVisible={false}>
-					{modalData && <Profile modalData={modalData} />}
+					{modalData && (
+						<Profile
+							data={getProfileData(modalData)}
+							fieldsConfig={peopeleProfileConfig}
+							showAvatar={true}
+						/>
+					)}
 				</Modal>
 			</MainWrap>
 		</Loader>
