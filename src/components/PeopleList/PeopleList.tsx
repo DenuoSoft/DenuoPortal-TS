@@ -51,8 +51,7 @@ export const PeopleList = () => {
 	);
 
 	const users = (response as UsersResponse)?.results || [];
-	const peopeleProfileConfig = employeeProfileConfig(modalData);
-	
+		
 	const getProfileData = (userData: any) => {
 		return {
 			first_name: userData.first_name,
@@ -70,6 +69,10 @@ export const PeopleList = () => {
 			}`.trim(),
 		};
 	};
+
+	const peopeleProfileConfig = useMemo(() => {
+		return employeeProfileConfig(modalData);
+	}, [modalData]);
 
 	const filteredUsers = useMemo(() => {
 		return users.filter((user) => {
