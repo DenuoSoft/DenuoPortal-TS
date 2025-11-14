@@ -1,4 +1,3 @@
-// store.tsx (упрощенная версия)
 import {configureStore} from '@reduxjs/toolkit';
 import themeReducer from '../feature/themeList';
 import {loadFromLocalStorage, saveToLocalStorage} from '../helpers/storage';
