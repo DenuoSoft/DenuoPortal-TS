@@ -1,6 +1,6 @@
 import { useState, useEffect} from 'react';
 import Keycloak from 'keycloak-js';
-import { httpClient } from '../../../HttpClient';
+import { httpClient } from '../../utils/HttpClient';
 import { KeycloakContext } from './keycloak-context';
 import { AuthComponentProps, AuthContextValue, InitOptions, UserInfo } from '../../models/keycloak';
 
