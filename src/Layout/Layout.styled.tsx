@@ -8,7 +8,7 @@ export const LayoutBlock = styled.div`
     grid-template-areas: 
     "header header header" 
     ". main .";
-    gap: 1.6rem;
+    gap: 3rem;
 `
 export const Main = styled.main`
   grid-area: main;

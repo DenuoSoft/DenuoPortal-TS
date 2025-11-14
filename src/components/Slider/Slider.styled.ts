@@ -6,16 +6,16 @@ export const SliderWrapper = styled.div`
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	max-width: 1000px;
+	max-width: 100rem;
 	margin: 0 auto;
 	
 `;
 export const SliderBox = styled.div<{$isPaused: boolean}>`
 	position: relative;
 	width: 100%;
-	height: 300px;
-     box-shadow: 3px 3px 12px rgba(98, 121, 167, 0.1);
-	border-radius: 30px;
+	height: 30rem;
+    box-shadow: 3px 3px 12px rgba(98, 121, 167, 0.1);
+	border-radius: 3rem;
 	overflow: hidden;
 	transition: opacity 1s ease;
 	${(props) =>
@@ -60,15 +60,15 @@ export const SlideContent = styled.div<{ $backgroundImage: string;  theme: Theme
 	transform: translate(-50%, -50%);
 	color: #fff;
 	text-align: center;
-	background-color: ${({theme}) => theme.colors.backgroundSecondary};
-	padding: 24px;
-	border-radius: 30px;
+	background-color: transparent;
+	
+	border-radius: 3rem;
 	overflow: hidden;
 	z-index: 3;
 	transition: background-color 1s ease;
 	h2 {
 		margin: 0;
-		font-size: 18px;
+		font-size: 1.8rem;
 		font-weight: 500;
 	}
 	&::before {
@@ -91,11 +91,11 @@ export const TextBox = styled.div`
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
-	padding: 24px;
+	padding: 2.4rem;
 	background-color: rgba(0, 0, 0, 0.25);
-	border-radius: 30px;
+	border-radius: 3rem;
 	overflow: hidden;
-	height: 250px;
+	height: 100%;
 `;
 
 export const Text = styled.div`
@@ -159,9 +159,9 @@ export const DotsContainer = styled.div`
 export const Button = styled.button<{theme: Theme}>`
 	display: flex;
 	align-items: center;
-	padding: 10px 15px;
+	padding: 1rem 1.5rem;
 	text-transform: uppercase;
-	font-size: 14px;
+	font-size: var(--text-size-14px);
 	background-color: ${({theme}) => theme.colors.primaryColor};
 	color: ${({theme}) => theme.colors.headerText};
 	border: none;
@@ -169,8 +169,8 @@ export const Button = styled.button<{theme: Theme}>`
 	cursor: pointer;
 `;
 export const Dot = styled.span<{$isActive: boolean; theme: Theme}>`
-	width: 12px;
-	height: 12px;
+	width: 1.2rem;
+	height: 1.2rem;
 	border-radius: 50%;
 	background-color: ${({theme, $isActive}) =>
 		$isActive ? theme.colors.primaryColor : theme.colors.textColor};
