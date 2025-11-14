@@ -22,8 +22,18 @@ import {Modal} from '../Modal/Modal';
 import {Profile} from '../Profile/Profile';
 import { employeeProfileConfig } from './peopleConfig';
 
+
 export const PeopleList = () => {
 	useAutoAuth();
+
+	const columns = [
+		'Name',
+		'Job position',
+		'Extension',
+		'Mobile phone',
+		'Office',
+	];
+	
 	const [selectedLetter, setSelectedLetter] = useState('ALL');
 	const [searchTerm, setSearchTerm] = useState('');
 	const [isModalOpen, setIsModalOpen] = useState(false);
@@ -34,6 +44,8 @@ export const PeopleList = () => {
 		isLoading,
 		isError,
 	} = useGetUsersQuery(undefined);
+
+
 
 	const openModal = (contact: any) => {
 		setModalData(contact);
@@ -98,14 +110,6 @@ export const PeopleList = () => {
 	const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setSearchTerm(e.target.value);
 	};
-
-	const columns = [
-		'Name',
-		'Job position',
-		'Extension',
-		'Mobile phone',
-		'Office',
-	];
 
 	return (
 		<Loader

@@ -5,7 +5,6 @@ export const SearchWrap = styled.div`
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
-	position: sticky;
 	height: 5rem;
 `;
 export const MainWrap = styled.div`

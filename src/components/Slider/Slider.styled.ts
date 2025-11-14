@@ -14,7 +14,7 @@ export const SliderBox = styled.div<{$isPaused: boolean}>`
 	position: relative;
 	width: 100%;
 	height: 30rem;
-    box-shadow: 3px 3px 12px rgba(98, 121, 167, 0.1);
+    box-shadow: var(--box-shadow);
 	border-radius: 3rem;
 	overflow: hidden;
 	transition: opacity 1s ease;
