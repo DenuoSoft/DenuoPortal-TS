@@ -3,13 +3,13 @@ import {NavLink} from 'react-router-dom';
 import '../../Layout/Layout.styled';
 import {Theme} from '../../models/theme';
 
-export const HeaderBlock = styled.div`
+export const HeaderBlock = styled.div<{ theme: Theme }>`
 	grid-area: header;
 	position: fixed;
 	width: 100%;
 	display: flex;
 	justify-content: center;
-	background-color: #fff;
+	background-color:${({theme}) => theme.colors.backgroundPrimary};
 	z-index: 99;
 `;
 export const HeaderContainer = styled.div<{ theme: Theme }>`

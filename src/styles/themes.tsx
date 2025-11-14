@@ -19,7 +19,7 @@ const dark: Theme = {
 	colors: {
 		backgroundPrimary: '#555a69',
 		backgroundSecondary: 'gray',
-		textColor: '#28282D',
+		textColor: '#c8c8c8',
 		headerText: '#c8c8c8',
 		activeColor: '#f5f0d2',
 		primaryColor: '#ffffff33',

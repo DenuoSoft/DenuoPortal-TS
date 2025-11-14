@@ -20,12 +20,12 @@ export const TabsItem = styled.div<{ theme: Theme, $isActive: boolean}>`
 	padding: 1.5rem 0;
 	font-size: var(--text-size-14px);
 	cursor: pointer;
-	
-    color: ${({$isActive, theme}) =>
+	color: ${({$isActive, theme}) =>
 		$isActive ? theme.colors.accentColor : theme.colors.textColor};
 	text-transform: uppercase;
     background-color: ${({$isActive, theme}) =>
-			$isActive ? theme.colors.activeColor : '#fff'};;
+    $isActive ? theme.colors.activeColor : ''};
+            
 	
 	&:hover {
 		color: ${({theme}) => theme.colors.accentColor};

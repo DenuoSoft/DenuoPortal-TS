@@ -1,11 +1,10 @@
 import React from 'react';
 
-function Practices() {
+export const Policies = () => {
   return (
     <div>
-      Practices
+      <h1>Policies</h1>
     </div>
   );
 }
 
-export default Practices;
